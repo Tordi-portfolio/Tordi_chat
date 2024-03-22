@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #45a049;
+}
+#sign_up_page{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: black;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+#headertwo{
+    background: black;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+}
+.header a{
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+.heaer span{
+    color: #ccc;
+    font-size: 14px;
+}
+h1{
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+p{
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 20px;
+    background: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+p a{
+    color: red;
+    text-decoration: none;
+}
+.google-btn{
+    background-color: #4285f4;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+}
+.or{
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+label{
+    margin-bottom: 5px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    background: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+input[type="text"]
+input[type="email"]
+input[type="password"]{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+#agreement{
+    display: flex;
+    align-items: center;
+}
+button[type="submit"]{
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5;
+}
+    </style>
+
+</head>
+<body>
+    
+    <div id="sign_up_page">
+        <div class="header">
+            <a href="#"><span style="color: red;"><b>TordiChat</b></span></a>
+            <span>(29)</span>
+        </div>
+        <div id="headertwo">
+            <h1>Create Your Account</h1>
+            <p>Hey there! Ready T o Join the investment platform? We just need a few details from you to get started. Let's do this!</p>
+            <button class="google-btn">Continue With Google</button>
+            <p class="or">Or</p>
+        </div>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password"><hr>
+
+            <a href="{% url 'password_reset' %}">Forgot Password?</a>
+
+            <button type="submit">Sign up</button>
+        </form>
+        <p>Have an account <a href="join">click here</a> to Sign Up</p>
+    </div>
+</body>
+</html>

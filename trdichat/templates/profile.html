@@ -1,0 +1,32 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <main>
+        <h2>Profiles</h2>
+        <ul>
+            <li><h3>USERNAME: {{user.username}}</h3></li><hr>
+            <li><h3>EMAIL: {{user.email}}</h3></li><hr>
+            <li><h3>FIRST_NAME: {{ user.first_name }}</h3></li><hr>
+            <li><h3>LAST_NAME: {{ user.last_name }}</h3></li><hr>
+            <li><h3>LOCATION: {{ user.location }}</h3></li><hr>
+            <li><h3>BIRTHDAY: {{ user.birthday_date }}</h3></li>
+        </ul>
+    </main>
+
+    <style>
+        main{
+            background: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+        }
+        hr{
+            border: 1px solid red;
+        }
+    </style>
+
+{% endblock %}

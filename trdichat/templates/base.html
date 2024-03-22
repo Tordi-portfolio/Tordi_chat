@@ -1,0 +1,118 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <style>
+        /* @media screen (min-width: ) and (max-width: ) {
+            
+        } */
+        header{
+            background: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            margin-bottom: 20px;
+        }
+        #headername{
+            margin: 20px;
+            margin-bottom: 0;
+        }
+        #headername h1{
+            margin: 0;
+        }
+        #headername h2{
+            margin: 0;
+        }
+        #headernavigate ul{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px;
+        }
+        ul li a {
+            list-style: none;
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+        }
+        ul li{
+            list-style: none;
+        }
+        ul li a:hover{
+            background: red;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+
+    <header>
+        <div id="headername">
+            <h1><span style="color: red;"><b>TordiChat</b></span> </h1>
+            {% if user.is_authenticated %}
+            <h2 style="font-weight: bolder; color: white;">Welcome Mr. <span style="color: red;">{{user.username}}</span></h2><br>
+            {% else %}
+            <h4 style="color: white">Welcome Dear User, Kindly Register To Get Started</h4>
+            {% endif %}
+        </div>
+        <div id="headernavigate">
+            <ul id="displaynavigator">
+                {% if user.is_authenticated %}
+                <li><a href="/">Home</a></li>
+                <li><a href="guild">Guide</a></li>
+                <li><a href="home">Join Group</a></li>
+                <li><a href="profile">Profile</a></li>
+                <li><a href="sign_out">Sign_out</a></li>
+                {% else %}
+                <li><a href="/">Home</a></li>
+                <li><a href="login">Login</a></li>
+                <li><a href="join">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer>
+        <div id="footertop">
+            <p><i>Thanks for using <span style="color: red;"><b>TordiChat</b></span> </i></p>
+        </div>
+        <div id="footercopy">
+            <p>&copy;Copyright, 2024 by <span style="color: red;"><b>TordiChat</b></span> </p>
+        </div>
+    </footer>
+
+<style>
+    footer{
+        background: black;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        color: white;
+        margin: 0;
+        margin-top: 90px;
+    }
+    #footercopy{
+        text-align: center;
+        padding: 10px;
+    }
+    #footertop{
+        padding: 10px;
+    }
+</style>
+
+</body>
+</html>
